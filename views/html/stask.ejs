@@ -1,0 +1,118 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>提交作业</title>
+  <link rel="stylesheet" href="../public/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../public/css/admin.css">
+</head>
+<body>
+<%- include("../header.ejs") %>
+<div class="am-cf admin-main" id="app">
+  <!-- sidebar start -->
+  <%- include("../left.ejs") %>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">提交作业</strong></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-bd">
+            <div class="am-g">
+              <div class="am-u-md-12">
+                <button type="button" class="am-btn am-btn-primary am-btn-lg">下载作业</button>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-bd">
+            <div class="am-g">
+              <div class="am-u-md-12">
+                <p>上传作业附件 </p>
+                <form class="am-form">
+                  <div class="am-form-group">
+                    <input type="file" id="user-pic">
+                    <p class="am-form-help">选择文件...</p>
+                    <button type="button" class="am-btn am-btn-primary am-btn-xs">保存</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+        <form class="am-form am-form-horizontal">
+          <div class="am-form-group">
+            <label for="user-name" class="am-u-sm-3 am-form-label">作业题目</label>
+            <div class="am-u-sm-9">
+              <input type="password" name="title" id="user-name" placeholder="请输入作业题目">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">学科</label>
+            <div class="am-u-sm-9">
+              <input type="text" name="major"  value="数学" readonly>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">所属专业</label>
+            <div class="am-u-sm-9">
+              <select name="department">
+                <option>计算机科学与技术</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">所属班级</label>
+            <div class="am-u-sm-9">
+              <select name="class">
+                <option>01班</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">开始日期</label>
+            <div class="am-u-sm-9">
+              <input type="date" name="start">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-phone" class="am-u-sm-3 am-form-label">截止日期</label>
+            <div class="am-u-sm-9">
+              <input type="date" name="start" value="优秀" readonly>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button type="button" class="am-btn am-btn-primary">保存</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+<%- include("../footer.ejs") %>
+<script src="../public/js/html/stask.js"></script>
+</body>
+</html>

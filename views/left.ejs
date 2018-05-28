@@ -1,0 +1,15 @@
+<div class="admin-sidebar">
+    <ul class="am-list admin-sidebar-list">
+
+      <li v-for="item in navs" v-cloak><a v-bind:href="item.url"><span v-bind:class="item.ico"></span> {{item.title}}</a></li>
+
+      <li><a href="javascript:void" onclick="exit()"><span class="am-icon-sign-out"></span> 注销</a></li>
+    </ul>
+
+    <div class="am-panel am-panel-default admin-sidebar-panel">
+      <div class="am-panel-bd">
+        <p><span class="am-icon-bookmark"></span> 公告</p>
+        <p>时光静好，与君语；细水流年，与君同。</p>
+      </div>
+    </div>
+  </div>

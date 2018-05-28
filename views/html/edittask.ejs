@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>编辑作业</title>
+  <link rel="stylesheet" href="../public/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../public/css/admin.css">
+</head>
+<body>
+<%- include("../header.ejs") %>
+<div class="am-cf admin-main" id="app">
+  <!-- sidebar start -->
+  <%- include("../left.ejs") %>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">添加作业</strong></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+        <div class="am-panel am-panel-default">
+          <div class="am-panel-bd">
+            <div class="am-g">
+              <div class="am-u-md-12">
+                <p>{{scfile}}</p>
+                <form class="am-form">
+                  <div class="am-form-group">
+                    <input type="file" name="word" id="user-pic">
+                    <p class="am-form-help">选择文件...</p>
+                    <input type="button"  class="am-btn am-btn-primary am-btn-xs" value='上传' v-on:click="upload">
+                    <input type="hidden" v-model="inputtext.exercises">    
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+        <form class="am-form am-form-horizontal">
+          <div class="am-form-group">
+            <label for="user-name" class="am-u-sm-3 am-form-label">作业题目</label>
+            <div class="am-u-sm-9">
+              <input type="text" placeholder="请输入作业题目" v-model="inputtext.title">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">学科</label>
+            <div class="am-u-sm-9">
+              <input type="text" readonly v-model="inputtext.major">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">所属专业</label>
+            <div class="am-u-sm-9">
+              <select name="department" v-model="inputtext.department">
+                <option v-for="item in dpts" :value="item" >{{item}}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-email" class="am-u-sm-3 am-form-label">开始日期</label>
+            <div class="am-u-sm-9">
+              <input type="date" v-model="inputtext.start">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label for="user-phone" class="am-u-sm-3 am-form-label">截止日期</label>
+            <div class="am-u-sm-9">
+              <input type="date" v-model="inputtext.end">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button type="button" class="am-btn am-btn-primary" v-on:click="save">保存</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+<%- include("../footer.ejs") %>
+<script src="../public/js/html/edittask.js"></script>
+</body>
+</html>

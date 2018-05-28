@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>用户资料</title>
+  <link rel="stylesheet" href="../public/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../public/css/admin.css">
+</head>
+<body>
+<%- include("../header.ejs") %>
+<div class="am-cf admin-main" id="app">
+  <!-- sidebar start -->
+  <%- include("../left.ejs") %>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">{{title}}</strong></div>
+    </div>
+
+    <hr/>
+
+    <div class="am-g">
+
+      <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8"></div>
+
+      <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+        <form class="am-form am-form-horizontal">
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">姓名</label>
+            <div class="am-u-sm-9">
+              <input type="text" placeholder="请输入姓名" v-model="inputtext.name">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">账户名</label>
+            <div class="am-u-sm-9">
+              <input type="text" placeholder="请输入账户名" v-model="inputtext.account">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">密码</label>
+            <div class="am-u-sm-9">
+              <input type="text" placeholder="请输入密码" v-model="inputtext.password">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">性别</label>
+            <div class="am-u-sm-9" >
+              <select v-model="inputtext.gender">
+                <option value="true">男</option>
+                <option value="false">女</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">职业</label>
+            <div class="am-u-sm-9" >
+              <select v-model="inputtext.type">
+                <option value="2">教师</option>
+                <option value="1">学生</option>
+                <option value="3">管理员</option>
+              </select>
+            </div>
+          </div>
+          <div class="am-form-group" v-if="inputtext.type == 1">
+            <label class="am-u-sm-3 am-form-label">专业</label>
+            <div class="am-u-sm-9">
+              <select v-model="inputtext.department">
+                <option v-for="item in dpts" :value="item" >{{item}}</option>
+              </select> 
+            </div>
+          </div>
+          <div class="am-form-group" v-if="inputtext.type==2">
+            <label class="am-u-sm-3 am-form-label">学科</label>
+            <div class="am-u-sm-9">
+              <select v-model="inputtext.major">
+                <option value="数学">数学</option>
+                <option value="数学">语文</option>
+                <option value="数学">英语</option>
+                <option value="数学">政治</option>
+              </select> 
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">电子邮件</label>
+            <div class="am-u-sm-9">
+              <input type="email" placeholder="请输入电子邮件" v-model="inputtext.email">
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <label class="am-u-sm-3 am-form-label">电话</label>
+            <div class="am-u-sm-9">
+              <input type="text" placeholder="请输入电话号码" v-model="inputtext.tel">
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-u-sm-9 am-u-sm-push-3">
+              <button type="button" class="am-btn am-btn-primary" v-on:click="submitMsg">保存</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+<%- include("../footer.ejs") %>
+<script src="../public/js/admin/userinfo.js"></script>
+</body>
+</html>

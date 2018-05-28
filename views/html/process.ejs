@@ -1,0 +1,69 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <title>作业进度</title>
+  <link rel="stylesheet" href="../public/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="../public/css/admin.css">
+</head>
+<body>
+<%- include("../header.ejs") %>
+<div class="am-cf admin-main" id="app">
+  <!-- sidebar start -->
+  <%- include("../left.ejs") %>
+  <!-- sidebar end -->
+
+  <!-- content start -->
+  <div class="admin-content">
+
+    <div class="am-cf am-padding">
+      <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">作业进度</strong> / <small>{{taskmsg.department}} - {{taskmsg.major}}</small></div>
+      <button type="button" class="am-fr am-btn am-btn-primary">批量下载</button>
+    </div>
+
+    <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+      <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>已提交<br/>{{tjnums}}</a></li>
+      <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>未提交<br/>{{wtjnums}}</a></li>
+      <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>未下载<br/>{{wxznums}}</a></li>
+      <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>已下载<br/>{{xznums}}</a></li>
+      <!-- <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span></a></li> -->
+    </ul>
+
+    <div class="am-g">
+      <div class="am-u-sm-12">
+        <table class="am-table am-table-bd am-table-striped admin-content-table">
+          <thead>
+          <tr>
+            <th v-for="item in columns">{{item.title}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr v-for="(item,index) in tableData">
+            <td>{{item.name}}</td>
+            <td>{{taskmsg.title}}</td>
+            <td>
+              <span v-if="item.tjstatus">已提交</span>
+              <span style="color:red;" v-else>未提交</span>
+            </td>
+            <td>
+              <span v-if="item.xzstatus">下载</span>
+              <span style="color:red;" v-else>未下载</span>
+            </td>
+            <td>{{taskmsg.end}}</td>
+            <td>
+              <button class="am-btn am-btn-default am-btn-xs am-text-secondary" v-bind:index="index" @click="download()"><span class="am-icon-pencil-square-o"></span> 下载</button>
+            </td>
+          </tr>
+ 
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- content end -->
+
+</div>
+<%- include("../footer.ejs") %>
+<script src="../public/js/html/process.js"></script>
+</body>
+</html>
